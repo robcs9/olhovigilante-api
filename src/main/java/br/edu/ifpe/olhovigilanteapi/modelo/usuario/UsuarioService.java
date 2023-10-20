@@ -14,12 +14,12 @@ public class UsuarioService {
     private UsuarioRepository repository;
 
     @Transactional
-    public Usuario save(Usuario cliente) {
+    public Usuario save(Usuario usuario) {
 
-        cliente.setHabilitado(Boolean.TRUE);
-        cliente.setVersao(1L);
-        cliente.setDataCriacao(LocalDate.now());
-        return repository.save(cliente);
+        usuario.setHabilitado(Boolean.TRUE);
+        usuario.setVersao(1L);
+        usuario.setDataCriacao(LocalDate.now());
+        return repository.save(usuario);
     }
 
 }

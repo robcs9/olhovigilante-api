@@ -18,7 +18,7 @@ public class UsuarioRequest {
 
     private String nome;
 
-    @JsonFormat(pattern = "dd/mm/aaaa")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
 
     private String cpf;
