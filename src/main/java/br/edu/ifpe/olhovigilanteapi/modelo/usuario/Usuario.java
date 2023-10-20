@@ -23,21 +23,42 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario extends EntidadeAuditavel  {
+public class Usuario extends EntidadeAuditavel {
 
    @Column
    private String nome;
 
    @Column
-   private LocalDate dataNascimento;
-
-   @Column
    private String cpf;
 
    @Column
-   private String foneCelular;
+   private String email;
 
    @Column
-   private String foneFixo;
+   private String senha;
+
+   @Column
+   private String bairro;
+
+   @Column
+   private String cidade;
+
+   @Column
+   private String avatar;
+
+   @Column
+   private String role;
+
+   @Column
+   private int credibilidade;
+
+   @Column
+   private boolean gpsDisponivel;
+
+   @Column
+   private int contadorSeguidores;
+
+   @Column
+   private int contadorSeguindo;
 
 }
