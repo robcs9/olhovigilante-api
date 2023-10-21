@@ -1,6 +1,7 @@
 package br.edu.ifpe.olhovigilanteapi.modelo.usuario;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -21,5 +22,12 @@ public class UsuarioService {
         usuario.setDataCriacao(LocalDate.now());
         return repository.save(usuario);
     }
+    
+    public List<Usuario> findAll() {
+        return repository.findAll();
+    }
 
+    public Usuario findById(Long id) {
+        return repository.findById(id).get();
+    }
 }
