@@ -50,15 +50,15 @@ public class Usuario extends EntidadeAuditavel {
    private String role;
 
    @Column
-   private int credibilidade;
+   private Integer reputacao;
 
    @Column
-   private boolean gpsDisponivel;
+   private Boolean verificado;
 
    @Column
-   private int contadorSeguidores;
+   private Integer contadorSeguidores;
 
    @Column
-   private int contadorSeguindo;
+   private Integer contadorSeguindo;
 
 }
