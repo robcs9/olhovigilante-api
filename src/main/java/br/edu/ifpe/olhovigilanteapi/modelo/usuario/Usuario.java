@@ -25,40 +25,40 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Usuario extends EntidadeAuditavel {
 
-   @Column
+   @Column(nullable = false)
    private String nome;
 
-   @Column
+   @Column(unique = true, nullable = false)
    private String cpf;
 
-   @Column
+   @Column(unique = true, nullable = false)
    private String email;
 
-   @Column
+   @Column(nullable = false)
    private String senha;
 
-   @Column
+   @Column(nullable = false)
    private String bairro;
 
-   @Column
+   @Column(nullable = false)
    private String cidade;
 
    @Column
    private String avatar;
 
-   @Column
+   @Column(nullable = false)
    private String role;
 
-   @Column
+   @Column(nullable = false)
    private Integer reputacao;
 
-   @Column
+   @Column(nullable = false)
    private Boolean verificado;
 
-   @Column
+   @Column(nullable = false)
    private Integer contadorSeguidores;
 
-   @Column
+   @Column(nullable = false)
    private Integer contadorSeguindo;
 
 }
