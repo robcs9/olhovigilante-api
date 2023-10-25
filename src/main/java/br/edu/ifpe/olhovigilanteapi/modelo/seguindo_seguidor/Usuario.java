@@ -15,12 +15,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-enum Role {
-   VISITANTE,
-   USUARIO,
-   ADMINISTRADOR
-}
-
 @Entity
 @Table(name = "Usuario")
 @Where(clause = "habilitado = true")
