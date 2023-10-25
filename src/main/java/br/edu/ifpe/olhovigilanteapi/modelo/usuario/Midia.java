@@ -15,6 +15,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+enum Role {
+   VISITANTE,
+   USUARIO,
+   ADMINISTRADOR
+}
+
 @Entity
 @Table(name = "Usuario")
 @Where(clause = "habilitado = true")
@@ -23,7 +29,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario extends EntidadeAuditavel {
+public class Midia extends EntidadeAuditavel {
 
    @Column(nullable = false)
    private String nome;

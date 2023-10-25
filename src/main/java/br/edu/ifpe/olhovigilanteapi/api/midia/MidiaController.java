@@ -1,4 +1,4 @@
-package br.edu.ifpe.olhovigilanteapi.api.usuario;
+package br.edu.ifpe.olhovigilanteapi.api.midia;
 
 import java.util.List;
 
@@ -15,49 +15,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Usuario;
-import br.edu.ifpe.olhovigilanteapi.modelo.usuario.UsuarioService;
+import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Midia;
+import br.edu.ifpe.olhovigilanteapi.modelo.usuario.MidiaService;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/api/midia")
 @CrossOrigin
-public class UsuarioController {
+public class MidiaController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private MidiaService midiaService;
 
     @PostMapping
-    public ResponseEntity<Usuario> save(@RequestBody UsuarioRequest request) {
+    public ResponseEntity<Midia> save(@RequestBody MidiaRequest request) {
         
-        Usuario usuario = usuarioService.save(request.build());
-        return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
+        Midia midia = midiaService.save(request.build());
+        return new ResponseEntity<Midia>(midia, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<Usuario> findAll(UsuarioRequest request) {
-        List<Usuario> usuarios = usuarioService.findAll();
-        return usuarios;
+    public List<Midia> findAll(MidiaRequest request) {
+        List<Midia> midias = midiaService.findAll();
+        return midias;
     }
 
     @GetMapping("/{id}")
-    public Usuario findById(@PathVariable("id") Long id) {
-        Usuario usuario = usuarioService.findById(id);
-        return usuario;
+    public Midia findById(@PathVariable("id") Long id) {
+        Midia midia = midiaService.findById(id);
+        return midia;
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> update(@PathVariable("id") Long id, @RequestBody UsuarioRequest request) {
+    public ResponseEntity<Midia> update(@PathVariable("id") Long id, @RequestBody MidiaRequest request) {
         
-        usuarioService.update(id, request.build());
+        midiaService.update(id, request.build());
         return ResponseEntity.ok().build();
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Usuario> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Midia> delete(@PathVariable("id") Long id) {
 
-        usuarioService.delete(id);
+        midiaService.delete(id);
         return ResponseEntity.ok().build();
     }
 }

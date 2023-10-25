@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioService {
+public class MidiaService {
 
     @Autowired
-    private ComentarioRepository repository;
+    private UsuarioRepository repository;
 
     @Transactional
-    public Comentario save(Comentario usuario) {
+    public Midia save(Midia usuario) {
 
         usuario.setHabilitado(Boolean.TRUE);
         usuario.setVersao(1L);
@@ -23,18 +23,18 @@ public class UsuarioService {
         return repository.save(usuario);
     }
     
-    public List<Comentario> findAll() {
+    public List<Midia> findAll() {
         return repository.findAll();
     }
 
-    public Comentario findById(Long id) {
+    public Midia findById(Long id) {
         return repository.findById(id).get();
     }
 
     @Transactional
-    public void update(Long id, Comentario usuarioAlterado) {
+    public void update(Long id, Midia usuarioAlterado) {
 
-        Comentario usuario = repository.findById(id).get();
+        Midia usuario = repository.findById(id).get();
         usuario.setNome(usuarioAlterado.getNome());
         usuario.setCpf(usuarioAlterado.getCpf());
         usuario.setEmail(usuarioAlterado.getEmail());
@@ -55,7 +55,7 @@ public class UsuarioService {
     @Transactional
     public void delete(Long id) {
         
-        Comentario usuario = repository.findById(id).get();
+        Midia usuario = repository.findById(id).get();
         usuario.setHabilitado(Boolean.FALSE);
         
         usuario.setVersao(usuario.getVersao() + 1);

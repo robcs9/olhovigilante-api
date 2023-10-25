@@ -1,4 +1,4 @@
-package br.edu.ifpe.olhovigilanteapi.modelo.comentario;
+package br.edu.ifpe.olhovigilanteapi.modelo.seguidor;
 
 import java.time.LocalDate;
 
@@ -16,25 +16,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Comentario")
+@Table(name = "Usuario")
 @Where(clause = "habilitado = true")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comentario extends EntidadeAuditavel {
+public class Seguidor extends EntidadeAuditavel {
 
    @Column(nullable = false)
-   private String texto;
+   private Long usuarioSeguidorId;
 
-   @Column
-   private Integer avaliacao;
-
-   @Column
-   private Long ocorrenciaId;
-   
-   //@Column(nullable = false)
-   //private Long usuarioId; // equivalente a "criadoPor" em EntidadeAuditavel?
-
+   @Column(nullable = false)
+   private Long usuarioSeguidoId;
 }

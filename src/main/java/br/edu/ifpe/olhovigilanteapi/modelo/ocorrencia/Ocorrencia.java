@@ -1,4 +1,4 @@
-package br.edu.ifpe.olhovigilanteapi.modelo.usuario;
+package br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia;
 
 import java.time.LocalDate;
 
@@ -16,49 +16,46 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "Ocorrencia")
 @Where(clause = "habilitado = true")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario extends EntidadeAuditavel {
+public class Ocorrencia extends EntidadeAuditavel {
 
    @Column(nullable = false)
-   private String nome;
-
-   @Column(unique = true, nullable = false)
-   private String cpf;
-
-   @Column(unique = true, nullable = false)
-   private String email;
-
+   private String descricao;
+   
+   @Column
+   private Integer avaliacao;
+   
    @Column(nullable = false)
-   private String senha;
+   private String cidade;
 
    @Column(nullable = false)
    private String bairro;
 
    @Column(nullable = false)
-   private String cidade;
-
+   private String geolocalizacao;
+   
+   @Column(nullable = false)
+   private LocalDate dataHoraOcorrencia;
+   
    @Column
-   private String avatar;
+   private Boolean presencaPolicial;
+   
+   @Column
+   private Boolean acaoPolicial;
 
    @Column(nullable = false)
-   private String role;
-
-   @Column(nullable = false)
-   private Integer reputacao;
-
-   @Column(nullable = false)
-   private Boolean verificado;
-
-   @Column(nullable = false)
-   private Integer contadorSeguidores;
-
-   @Column(nullable = false)
-   private Integer contadorSeguindo;
+   private Ocorrencia tipoOcorrencia;
+   
+   @Column
+   private String motivacao;
+   
+   @Column
+   private Integer qtdVitimas;
 
 }
