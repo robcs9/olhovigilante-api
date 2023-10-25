@@ -29,7 +29,7 @@ enum Role {
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Midia extends EntidadeAuditavel {
+public class Usuario extends EntidadeAuditavel {
 
    @Column(nullable = false)
    private String nome;

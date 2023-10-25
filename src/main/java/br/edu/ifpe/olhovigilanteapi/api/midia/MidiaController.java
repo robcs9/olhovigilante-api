@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Midia;
-import br.edu.ifpe.olhovigilanteapi.modelo.usuario.MidiaService;
-import org.springframework.web.bind.annotation.RequestParam;
+import br.edu.ifpe.olhovigilanteapi.modelo.midia.Midia;
+import br.edu.ifpe.olhovigilanteapi.modelo.midia.MidiaService;
 
 
 @RestController

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Midia;
-import br.edu.ifpe.olhovigilanteapi.modelo.usuario.MidiaService;
+import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Usuario;
+import br.edu.ifpe.olhovigilanteapi.modelo.usuario.UsuarioService;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -26,36 +26,36 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UsuarioController {
 
     @Autowired
-    private MidiaService usuarioService;
+    private UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<Midia> save(@RequestBody ComentarioRequest request) {
+    public ResponseEntity<Usuario> save(@RequestBody ComentarioRequest request) {
         
-        Midia usuario = usuarioService.save(request.build());
-        return new ResponseEntity<Midia>(usuario, HttpStatus.CREATED);
+        Usuario usuario = usuarioService.save(request.build());
+        return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<Midia> findAll(ComentarioRequest request) {
-        List<Midia> usuarios = usuarioService.findAll();
+    public List<Usuario> findAll(ComentarioRequest request) {
+        List<Usuario> usuarios = usuarioService.findAll();
         return usuarios;
     }
 
     @GetMapping("/{id}")
-    public Midia findById(@PathVariable("id") Long id) {
-        Midia usuario = usuarioService.findById(id);
+    public Usuario findById(@PathVariable("id") Long id) {
+        Usuario usuario = usuarioService.findById(id);
         return usuario;
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Midia> update(@PathVariable("id") Long id, @RequestBody ComentarioRequest request) {
+    public ResponseEntity<Usuario> update(@PathVariable("id") Long id, @RequestBody ComentarioRequest request) {
         
         usuarioService.update(id, request.build());
         return ResponseEntity.ok().build();
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Midia> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Usuario> delete(@PathVariable("id") Long id) {
 
         usuarioService.delete(id);
         return ResponseEntity.ok().build();

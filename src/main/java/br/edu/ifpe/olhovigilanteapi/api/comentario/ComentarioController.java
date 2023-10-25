@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifpe.olhovigilanteapi.modelo.comentario.Comentario;
 import br.edu.ifpe.olhovigilanteapi.modelo.comentario.ComentarioService;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @RestController
 @RequestMapping("/api/comentario")
