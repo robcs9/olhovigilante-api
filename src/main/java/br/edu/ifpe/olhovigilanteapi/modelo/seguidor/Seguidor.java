@@ -28,9 +28,9 @@ import lombok.Setter;
 public class Seguidor extends EntidadeAuditavel {
 
    //@OneToMany
-   //List<Usuario> usuariosSeguidores;
+   //private List<Usuario> usuariosSeguidores;
 //
-   //List<Usuario> usuariosSeguidos;
+   //private List<Usuario> usuariosSeguidos;
 
    @Column (nullable = false)
    private Long usuarioSeguidorId;

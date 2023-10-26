@@ -2,6 +2,7 @@ package br.edu.ifpe.olhovigilanteapi.modelo.usuario;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
