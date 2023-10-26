@@ -1,13 +1,15 @@
 package br.edu.ifpe.olhovigilanteapi.modelo.seguidor;
 
-import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
+import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Usuario;
 import br.edu.ifpe.olhovigilanteapi.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +26,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Seguidor extends EntidadeAuditavel {
+
+   //@OneToMany
+   //List<Usuario> usuariosSeguidores;
+//
+   //List<Usuario> usuariosSeguidos;
 
    @Column (nullable = false)
    private Long usuarioSeguidorId;

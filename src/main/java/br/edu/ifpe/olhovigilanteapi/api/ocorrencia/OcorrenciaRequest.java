@@ -2,8 +2,6 @@ package br.edu.ifpe.olhovigilanteapi.api.ocorrencia;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.Ocorrencia;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

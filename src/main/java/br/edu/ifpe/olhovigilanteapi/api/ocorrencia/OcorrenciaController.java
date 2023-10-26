@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.Ocorrencia;
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.OcorrenciaService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController

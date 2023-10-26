@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Usuario;
 import br.edu.ifpe.olhovigilanteapi.modelo.usuario.UsuarioService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController

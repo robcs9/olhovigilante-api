@@ -1,7 +1,5 @@
 package br.edu.ifpe.olhovigilanteapi.modelo.midia;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;

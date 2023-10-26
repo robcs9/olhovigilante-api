@@ -1,7 +1,5 @@
 package br.edu.ifpe.olhovigilanteapi.modelo.usuario;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -67,4 +65,5 @@ public class Usuario extends EntidadeAuditavel {
    @Column(nullable = false)
    private Integer contadorSeguindo;
 
+   
 }
