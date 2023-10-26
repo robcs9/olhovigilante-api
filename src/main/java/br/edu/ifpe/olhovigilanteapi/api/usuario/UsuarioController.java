@@ -29,14 +29,14 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<Usuario> save(@RequestBody ComentarioRequest request) {
+    public ResponseEntity<Usuario> save(@RequestBody UsuarioRequest request) {
         
         Usuario usuario = usuarioService.save(request.build());
         return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<Usuario> findAll(ComentarioRequest request) {
+    public List<Usuario> findAll(UsuarioRequest request) {
         List<Usuario> usuarios = usuarioService.findAll();
         return usuarios;
     }
@@ -48,7 +48,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> update(@PathVariable("id") Long id, @RequestBody ComentarioRequest request) {
+    public ResponseEntity<Usuario> update(@PathVariable("id") Long id, @RequestBody UsuarioRequest request) {
         
         usuarioService.update(id, request.build());
         return ResponseEntity.ok().build();

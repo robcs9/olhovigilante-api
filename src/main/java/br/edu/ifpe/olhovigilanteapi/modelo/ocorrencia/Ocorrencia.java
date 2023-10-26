@@ -15,6 +15,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+enum TipoOcorrencia {
+   ASSALTO,
+   LATROCÍNIO,
+   ROUBO,
+   FURTO,
+   TRÁFICO,
+   HOMICÍDIO,
+   FEMINICÍDIO
+}
+
 @Entity
 @Table(name = "Ocorrencia")
 @Where(clause = "habilitado = true")
@@ -50,7 +60,7 @@ public class Ocorrencia extends EntidadeAuditavel {
    private Boolean acaoPolicial;
 
    @Column(nullable = false)
-   private Ocorrencia tipoOcorrencia;
+   private String tipoOcorrencia;
    
    @Column
    private String motivacao;

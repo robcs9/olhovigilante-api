@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "Seguidor")
 @Where(clause = "habilitado = true")
 @Builder
 @Getter
@@ -25,9 +25,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Seguidor extends EntidadeAuditavel {
 
-   @Column(nullable = false)
+   @Column (nullable = false)
    private Long usuarioSeguidorId;
 
-   @Column(nullable = false)
+   @Column (nullable = false)
    private Long usuarioSeguidoId;
 }

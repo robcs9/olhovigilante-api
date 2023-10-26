@@ -34,10 +34,10 @@ public class Usuario extends EntidadeAuditavel {
    @Column(nullable = false)
    private String nome;
 
-   @Column(unique = true, nullable = false)
+   @Column(nullable = false, unique = true)
    private String cpf;
 
-   @Column(unique = true, nullable = false)
+   @Column(nullable = false, unique = true)
    private String email;
 
    @Column(nullable = false)

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Midia;
+import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -40,9 +40,9 @@ public class UsuarioRequest {
    
    private Integer contadorSeguindo;
 
-    public Midia build() {
+    public Usuario build() {
 
-        return Midia.builder()
+        return Usuario.builder()
             .nome(nome)
             .cpf(cpf)
             .email(email)

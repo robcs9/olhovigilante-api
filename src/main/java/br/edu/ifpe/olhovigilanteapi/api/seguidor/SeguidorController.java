@@ -1,4 +1,4 @@
-package br.edu.ifpe.olhovigilanteapi.api.seguindo_seguidor;
+package br.edu.ifpe.olhovigilanteapi.api.seguidor;
 
 import java.util.List;
 
@@ -15,49 +15,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Midia;
-import br.edu.ifpe.olhovigilanteapi.modelo.usuario.MidiaService;
+import br.edu.ifpe.olhovigilanteapi.modelo.seguidor.Seguidor;
+import br.edu.ifpe.olhovigilanteapi.modelo.seguidor.SeguidorService;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/api/seguidor")
 @CrossOrigin
-public class UsuarioController {
+public class SeguidorController {
 
     @Autowired
-    private MidiaService usuarioService;
+    private SeguidorService seguidorService;
 
     @PostMapping
-    public ResponseEntity<Midia> save(@RequestBody UsuarioRequest request) {
+    public ResponseEntity<Seguidor> save(@RequestBody SeguidorRequest request) {
         
-        Midia usuario = usuarioService.save(request.build());
-        return new ResponseEntity<Midia>(usuario, HttpStatus.CREATED);
+        Seguidor seguidor = seguidorService.save(request.build());
+        return new ResponseEntity<Seguidor>(seguidor, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<Midia> findAll(UsuarioRequest request) {
-        List<Midia> usuarios = usuarioService.findAll();
-        return usuarios;
+    public List<Seguidor> findAll(SeguidorRequest request) {
+        List<Seguidor> seguidores = seguidorService.findAll();
+        return seguidores;
     }
 
     @GetMapping("/{id}")
-    public Midia findById(@PathVariable("id") Long id) {
-        Midia usuario = usuarioService.findById(id);
-        return usuario;
+    public Seguidor findById(@PathVariable("id") Long id) {
+        Seguidor seguidor = seguidorService.findById(id);
+        return seguidor;
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Midia> update(@PathVariable("id") Long id, @RequestBody UsuarioRequest request) {
+    public ResponseEntity<Seguidor> update(@PathVariable("id") Long id, @RequestBody SeguidorRequest request) {
         
-        usuarioService.update(id, request.build());
+        seguidorService.update(id, request.build());
         return ResponseEntity.ok().build();
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Midia> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Seguidor> delete(@PathVariable("id") Long id) {
 
-        usuarioService.delete(id);
+        seguidorService.delete(id);
         return ResponseEntity.ok().build();
     }
 }
