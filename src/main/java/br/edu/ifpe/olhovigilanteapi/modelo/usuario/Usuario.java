@@ -1,5 +1,7 @@
 package br.edu.ifpe.olhovigilanteapi.modelo.usuario;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -7,6 +9,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
+import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.Ocorrencia;
 import br.edu.ifpe.olhovigilanteapi.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -65,6 +68,9 @@ public class Usuario extends EntidadeAuditavel {
 
    @Column(nullable = false)
    private Integer contadorSeguindo;
+
+   @OneToMany(mappedBy = "Ocorrencia")
+   private List<Ocorrencia> ocorrencias;
 
    
 }
