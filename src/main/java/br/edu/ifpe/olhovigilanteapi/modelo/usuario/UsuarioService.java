@@ -20,6 +20,12 @@ public class UsuarioService {
         usuario.setHabilitado(Boolean.TRUE);
         usuario.setVersao(1L);
         usuario.setDataCriacao(LocalDate.now());
+        usuario.setContadorSeguidores(0);
+        usuario.setContadorSeguindo(0);
+        usuario.setReputacao(0);
+        usuario.setRole("USUARIO");
+        usuario.setVerificado(Boolean.FALSE);
+
         return repository.save(usuario);
     }
     
@@ -49,6 +55,7 @@ public class UsuarioService {
         usuario.setContadorSeguindo(usuarioAlterado.getContadorSeguindo());
         
         usuario.setVersao(usuario.getVersao() + 1);
+        usuario.setDataUltimaModificacao(LocalDate.now());
         repository.save(usuario);
     }
 
@@ -59,6 +66,7 @@ public class UsuarioService {
         usuario.setHabilitado(Boolean.FALSE);
         
         usuario.setVersao(usuario.getVersao() + 1);
+        usuario.setDataUltimaModificacao(LocalDate.now());
         repository.save(usuario);
     }
 

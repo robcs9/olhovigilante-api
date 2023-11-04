@@ -20,6 +20,9 @@ public class OcorrenciaService {
         ocorrencia.setHabilitado(Boolean.TRUE);
         ocorrencia.setVersao(1L);
         ocorrencia.setDataCriacao(LocalDate.now());
+        ocorrencia.setCriadoPor(ocorrencia.getUsuario().getId());
+        ocorrencia.setAvaliacao(0);
+
         return repository.save(ocorrencia);
     }
     
@@ -46,7 +49,7 @@ public class OcorrenciaService {
         ocorrencia.setMotivacao(ocorrenciaAlterada.getMotivacao());
         ocorrencia.setQtdVitimas(ocorrenciaAlterada.getQtdVitimas());
         
-        
+        ocorrencia.setDataUltimaModificacao(LocalDate.now());
         ocorrencia.setVersao(ocorrencia.getVersao() + 1);
         repository.save(ocorrencia);
     }
@@ -56,7 +59,7 @@ public class OcorrenciaService {
         
         Ocorrencia ocorrencia = repository.findById(id).get();
         ocorrencia.setHabilitado(Boolean.FALSE);
-        
+        ocorrencia.setDataUltimaModificacao(LocalDate.now());
         ocorrencia.setVersao(ocorrencia.getVersao() + 1);
         repository.save(ocorrencia);
     }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.Ocorrencia;
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.OcorrenciaService;
+import br.edu.ifpe.olhovigilanteapi.modelo.usuario.UsuarioService;
 
 
 @RestController
@@ -27,10 +28,16 @@ public class OcorrenciaController {
     @Autowired
     private OcorrenciaService ocorrenciaService;
 
+    @Autowired
+    private UsuarioService usuarioService;
+
     @PostMapping
     public ResponseEntity<Ocorrencia> save(@RequestBody OcorrenciaRequest request) {
         
-        Ocorrencia ocorrencia = ocorrenciaService.save(request.build());
+        Ocorrencia novaOcorrencia = request.build();
+        novaOcorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
+        Ocorrencia ocorrencia = ocorrenciaService.save(novaOcorrencia);
+        //Ocorrencia ocorrencia = ocorrenciaService.save(request.build());
         return new ResponseEntity<Ocorrencia>(ocorrencia, HttpStatus.CREATED);
     }
 
@@ -49,7 +56,10 @@ public class OcorrenciaController {
     @PutMapping("/{id}")
     public ResponseEntity<Ocorrencia> update(@PathVariable("id") Long id, @RequestBody OcorrenciaRequest request) {
         
-        ocorrenciaService.update(id, request.build());
+        Ocorrencia ocorrencia = request.build();
+        ocorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
+        ocorrenciaService.update(id, ocorrencia);
+        //ocorrenciaService.update(id, request.build());
         return ResponseEntity.ok().build();
     }
     

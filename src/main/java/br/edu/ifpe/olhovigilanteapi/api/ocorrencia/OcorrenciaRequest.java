@@ -24,6 +24,8 @@ enum TipoOcorrencia {
 @AllArgsConstructor
 public class OcorrenciaRequest {
 
+    private Long usuarioId;
+
     private String descricao;
 
     private Integer avaliacao;

@@ -2,12 +2,16 @@ package br.edu.ifpe.olhovigilanteapi.modelo.usuario;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.Ocorrencia;
 import br.edu.ifpe.olhovigilanteapi.util.entity.EntidadeAuditavel;
@@ -45,10 +49,10 @@ public class Usuario extends EntidadeAuditavel {
    @Column(nullable = false)
    private String senha;
 
-   @Column(nullable = false)
+   @Column
    private String bairro;
 
-   @Column(nullable = false)
+   @Column
    private String cidade;
 
    @Column
@@ -59,7 +63,7 @@ public class Usuario extends EntidadeAuditavel {
 
    @Column(nullable = false)
    private Integer reputacao;
-
+   
    @Column(nullable = false)
    private Boolean verificado;
 
@@ -69,8 +73,7 @@ public class Usuario extends EntidadeAuditavel {
    @Column(nullable = false)
    private Integer contadorSeguindo;
 
-   @OneToMany(mappedBy = "Ocorrencia")
-   private List<Ocorrencia> ocorrencias;
+   //@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+   //private List<Ocorrencia> ocorrencias;
 
-   
 }

@@ -40,7 +40,7 @@ public class Ocorrencia extends EntidadeAuditavel {
    @Column(nullable = false)
    private String descricao;
    
-   @Column
+   @Column(nullable = false)
    private Integer avaliacao;
    
    @Column(nullable = false)
@@ -49,11 +49,11 @@ public class Ocorrencia extends EntidadeAuditavel {
    @Column(nullable = false)
    private String bairro;
 
-   @Column(nullable = false)
+   @Column
    private String geolocalizacao;
    
    @Column(nullable = false)
-   private LocalDate dataHoraOcorrencia;
+   private LocalDate dataHoraOcorrencia; // separar em private LocalDate data; private LocalDate hora; ?
    
    @Column
    private Boolean presencaPolicial;
