@@ -37,7 +37,6 @@ public class OcorrenciaController {
         Ocorrencia novaOcorrencia = request.build();
         novaOcorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
         Ocorrencia ocorrencia = ocorrenciaService.save(novaOcorrencia);
-        //Ocorrencia ocorrencia = ocorrenciaService.save(request.build());
         return new ResponseEntity<Ocorrencia>(ocorrencia, HttpStatus.CREATED);
     }
 
@@ -59,7 +58,6 @@ public class OcorrenciaController {
         Ocorrencia ocorrencia = request.build();
         ocorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
         ocorrenciaService.update(id, ocorrencia);
-        //ocorrenciaService.update(id, request.build());
         return ResponseEntity.ok().build();
     }
     
