@@ -2,6 +2,8 @@ package br.edu.ifpe.olhovigilanteapi.api.ocorrencia;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.CategoriaOcorrenciaService;
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.Ocorrencia;
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.OcorrenciaService;
 import br.edu.ifpe.olhovigilanteapi.modelo.usuario.UsuarioService;
@@ -31,11 +34,15 @@ public class OcorrenciaController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private CategoriaOcorrenciaService categoriaOcorrenciaService;
+
     @PostMapping
-    public ResponseEntity<Ocorrencia> save(@RequestBody OcorrenciaRequest request) {
+    public ResponseEntity<Ocorrencia> save(@RequestBody /* @Valid */ OcorrenciaRequest request) {
         
         Ocorrencia novaOcorrencia = request.build();
         novaOcorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
+        novaOcorrencia.setCategoria(categoriaOcorrenciaService.findById(request.getCategoriaId()));
         Ocorrencia ocorrencia = ocorrenciaService.save(novaOcorrencia);
         return new ResponseEntity<Ocorrencia>(ocorrencia, HttpStatus.CREATED);
     }
@@ -57,6 +64,7 @@ public class OcorrenciaController {
         
         Ocorrencia ocorrencia = request.build();
         ocorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
+        ocorrencia.setCategoria(categoriaOcorrenciaService.findById(request.getCategoriaId()));
         ocorrenciaService.update(id, ocorrencia);
         return ResponseEntity.ok().build();
     }
