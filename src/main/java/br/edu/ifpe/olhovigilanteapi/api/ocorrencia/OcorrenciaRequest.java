@@ -26,6 +26,8 @@ public class OcorrenciaRequest {
 
     private Long usuarioId;
 
+    private Long categoriaId;
+
     private String descricao;
 
     private Integer avaliacao;
@@ -38,15 +40,15 @@ public class OcorrenciaRequest {
     
     private LocalDate dataHoraOcorrencia;
     
-    private Boolean presencaPolicial;
+    // private Boolean presencaPolicial;
     
-    private Boolean acaoPolicial;
+    // private Boolean acaoPolicial;
     
-    private String tipoOcorrencia;
+    // private String tipoOcorrencia;
     
-    private String motivacao;
+    // private String motivacao;
     
-    private Integer qtdVitimas;
+    // private Integer qtdVitimas;
     
 
     public Ocorrencia build() {
@@ -58,11 +60,10 @@ public class OcorrenciaRequest {
             .bairro(bairro)
             .geolocalizacao(geolocalizacao)
             .dataHoraOcorrencia(dataHoraOcorrencia)
-            .presencaPolicial(presencaPolicial)
-            .acaoPolicial(acaoPolicial)
-            .motivacao(motivacao)
-            .tipoOcorrencia(tipoOcorrencia)
-            .qtdVitimas(qtdVitimas)
+            // .presencaPolicial(presencaPolicial)
+            // .acaoPolicial(acaoPolicial)
+            // .motivacao(motivacao)
+            // .qtdVitimas(qtdVitimas)
             .build();
     }
 }

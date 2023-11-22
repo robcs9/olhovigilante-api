@@ -43,11 +43,10 @@ public class OcorrenciaService {
         ocorrencia.setBairro(ocorrenciaAlterada.getBairro());
         ocorrencia.setGeolocalizacao(ocorrenciaAlterada.getGeolocalizacao());
         ocorrencia.setDataHoraOcorrencia(ocorrenciaAlterada.getDataHoraOcorrencia());
-        ocorrencia.setPresencaPolicial(ocorrenciaAlterada.getPresencaPolicial());
-        ocorrencia.setAcaoPolicial(ocorrenciaAlterada.getAcaoPolicial());
-        ocorrencia.setTipoOcorrencia(ocorrenciaAlterada.getTipoOcorrencia());
-        ocorrencia.setMotivacao(ocorrenciaAlterada.getMotivacao());
-        ocorrencia.setQtdVitimas(ocorrenciaAlterada.getQtdVitimas());
+        // ocorrencia.setPresencaPolicial(ocorrenciaAlterada.getPresencaPolicial());
+        // ocorrencia.setAcaoPolicial(ocorrenciaAlterada.getAcaoPolicial());
+        // ocorrencia.setMotivacao(ocorrenciaAlterada.getMotivacao());
+        // ocorrencia.setQtdVitimas(ocorrenciaAlterada.getQtdVitimas());
         
         ocorrencia.setDataUltimaModificacao(LocalDate.now());
         ocorrencia.setVersao(ocorrencia.getVersao() + 1);

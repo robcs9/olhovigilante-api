@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "TipoOcorrencia")
+@Table(name = "CategoriaOcorrencia")
 @Where(clause = "habilitado = true")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class tipoOcorrencia extends EntidadeAuditavel {
+public class CategoriaOcorrencia extends EntidadeAuditavel {
     
     @Column
-    String nome;
+    private String nome;
 }
