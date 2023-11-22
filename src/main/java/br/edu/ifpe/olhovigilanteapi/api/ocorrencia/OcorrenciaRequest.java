@@ -8,16 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-enum TipoOcorrencia {
-   ASSALTO,
-   LATROCÍNIO,
-   ROUBO,
-   FURTO,
-   TRÁFICO,
-   HOMICÍDIO,
-   FEMINICÍDIO
-}
-
 @Data
 @Builder
 @NoArgsConstructor
