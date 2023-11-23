@@ -37,16 +37,16 @@ enum Role {
 @NoArgsConstructor
 public class Usuario extends EntidadeAuditavel {
 
-   @Column(nullable = false)
+   @Column //(nullable = false)
    private String nome;
 
    @Column(nullable = false, unique = true)
    private String cpf;
 
-   @Column(nullable = false, unique = true)
+   @Column (nullable = false, unique = true)
    private String email;
 
-   @Column(nullable = false)
+   @Column //(nullable = false)
    private String senha;
 
    @Column
@@ -58,19 +58,19 @@ public class Usuario extends EntidadeAuditavel {
    @Column
    private String avatar;
 
-   @Column(nullable = false)
+   @Column //(nullable = false)
    private String role;
 
-   @Column(nullable = false)
+   @Column //(nullable = false)
    private Integer reputacao;
    
-   @Column(nullable = false)
+   @Column //(nullable = false)
    private Boolean verificado;
 
-   @Column(nullable = false)
+   @Column //(nullable = false)
    private Integer contadorSeguidores;
 
-   @Column(nullable = false)
+   @Column //(nullable = false)
    private Integer contadorSeguindo;
 
    //@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
