@@ -14,15 +14,17 @@ public class OcorrenciaService {
     @Autowired
     private OcorrenciaRepository repository;
 
+    @Autowired
+    private CategoriaOcorrenciaRepository categoriaOcorrenciaRepository;
+
     @Transactional
     public Ocorrencia save(Ocorrencia ocorrencia) {
 
         ocorrencia.setHabilitado(Boolean.TRUE);
         ocorrencia.setVersao(1L);
         ocorrencia.setDataCriacao(LocalDate.now());
-        ocorrencia.setCriadoPor(ocorrencia.getUsuario().getId());
+        //ocorrencia.setCriadoPor(ocorrencia.getUsuario().getId()); // interpretação incorreta do propósito
         ocorrencia.setAvaliacao(0);
-
         return repository.save(ocorrencia);
     }
     

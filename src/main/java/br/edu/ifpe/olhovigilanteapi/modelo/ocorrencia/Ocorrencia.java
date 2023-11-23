@@ -30,6 +30,9 @@ public class Ocorrencia extends EntidadeAuditavel {
    @ManyToOne
    private CategoriaOcorrencia categoria;
 
+   @ManyToOne
+   private Usuario usuario;
+
    @Column(nullable = false)
    private String descricao;
    
@@ -46,8 +49,9 @@ public class Ocorrencia extends EntidadeAuditavel {
    private String geolocalizacao;
    
    @Column(nullable = false)
-   private LocalDate dataHoraOcorrencia; // separar em private LocalDate data; private LocalDate hora; ?
+   private LocalDate dataHoraOcorrencia; // separar em private LocalDate data; private LocalTime hora; ?
    
+   // Atributos abaixo serão removidos ou não futuramente (pendente)
    @Column
    private Boolean presencaPolicial;
    
@@ -59,8 +63,5 @@ public class Ocorrencia extends EntidadeAuditavel {
    
    @Column
    private Integer qtdVitimas;
-
-   @ManyToOne
-   private Usuario usuario;
 
 }
