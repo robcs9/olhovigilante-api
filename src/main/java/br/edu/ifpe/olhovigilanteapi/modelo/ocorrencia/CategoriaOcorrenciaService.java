@@ -1,6 +1,7 @@
 package br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -10,22 +11,48 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CategoriaOcorrenciaService {
-    
+
     @Autowired
     private CategoriaOcorrenciaRepository repository;
 
     @Transactional
     public CategoriaOcorrencia save(CategoriaOcorrencia categoriaOcorrencia) {
-        
+
         categoriaOcorrencia.setHabilitado(Boolean.TRUE);
         categoriaOcorrencia.setVersao(1L);
         categoriaOcorrencia.setDataCriacao(LocalDate.now());
         return repository.save(categoriaOcorrencia);
     }
 
-    public List<CategoriaOcorrencia> findAll() {
+    @Transactional
+    public List<CategoriaOcorrencia> saveAll(List<CategoriaOcorrencia> categorias) {
 
-        return repository.findAll();
+        for (CategoriaOcorrencia categoria : categorias) {
+
+            categoria.setHabilitado(Boolean.TRUE);
+            categoria.setVersao(1L);
+            categoria.setDataCriacao(LocalDate.now());
+        }
+
+        return repository.saveAll(categorias);
+    }
+
+    public List<CategoriaOcorrencia> findAll() {
+        List<CategoriaOcorrencia> categorias = repository.findAll();
+
+        if (categorias.size() == 0) {
+
+            for (CategoriasEnum categoriaEnum : CategoriasEnum.values()) {
+
+                CategoriaOcorrencia categoria = new CategoriaOcorrencia();
+                categoria.setNome(categoriaEnum.getName());                
+                categorias.add(categoria);
+            }
+
+            categorias = repository.saveAll(categorias);
+        }
+
+        return categorias;
     }
 
     public CategoriaOcorrencia findById(Long id) {
@@ -38,7 +65,7 @@ public class CategoriaOcorrenciaService {
 
         CategoriaOcorrencia categoria = repository.findById(id).get();
         categoria.setNome(categoriaOcorrenciaAlterado.getNome());
-        
+
         categoria.setVersao(categoria.getVersao() + 1);
         repository.save(categoria);
     }
