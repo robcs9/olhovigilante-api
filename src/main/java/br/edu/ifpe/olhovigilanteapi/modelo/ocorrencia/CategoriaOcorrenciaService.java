@@ -40,18 +40,6 @@ public class CategoriaOcorrenciaService {
     public List<CategoriaOcorrencia> findAll() {
         List<CategoriaOcorrencia> categorias = repository.findAll();
 
-        if (categorias.size() == 0) {
-
-            for (CategoriasEnum categoriaEnum : CategoriasEnum.values()) {
-
-                CategoriaOcorrencia categoria = new CategoriaOcorrencia();
-                categoria.setNome(categoriaEnum.getName());                
-                categorias.add(categoria);
-            }
-
-            categorias = repository.saveAll(categorias);
-        }
-
         return categorias;
     }
 

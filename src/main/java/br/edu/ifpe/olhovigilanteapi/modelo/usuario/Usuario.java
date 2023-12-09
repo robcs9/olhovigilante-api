@@ -37,7 +37,7 @@ enum Role {
 @NoArgsConstructor
 public class Usuario extends EntidadeAuditavel {
 
-   @Column //(nullable = false)
+   @Column (nullable = false)
    private String nome;
 
    @Column(nullable = false, unique = true)
@@ -46,7 +46,7 @@ public class Usuario extends EntidadeAuditavel {
    @Column (nullable = false, unique = true)
    private String email;
 
-   @Column //(nullable = false)
+   @Column (nullable = false)
    private String senha;
 
    @Column
