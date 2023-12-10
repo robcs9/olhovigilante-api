@@ -6,7 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
@@ -14,6 +14,7 @@ import org.hibernate.annotations.Where;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.Ocorrencia;
+import br.edu.ifpe.olhovigilanteapi.modelo.acesso.Membro;
 import br.edu.ifpe.olhovigilanteapi.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,11 +22,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-enum Role {
-   VISITANTE,
+/* enum Role {
+   //VISITANTE,
    USUARIO,
    ADMINISTRADOR
-}
+} */
 
 @Entity
 @Table(name = "Usuario")
@@ -37,6 +38,10 @@ enum Role {
 @NoArgsConstructor
 public class Usuario extends EntidadeAuditavel {
 
+   @OneToOne
+   @JoinColumn(nullable=false)
+   private Membro membro;
+
    @Column (nullable = false)
    private String nome;
 
@@ -46,8 +51,8 @@ public class Usuario extends EntidadeAuditavel {
    @Column (nullable = false, unique = true)
    private String email;
 
-   @Column (nullable = false)
-   private String senha;
+   //@Column (nullable = false)
+   //private String senha;
 
    @Column
    private String bairro;
@@ -57,9 +62,9 @@ public class Usuario extends EntidadeAuditavel {
 
    @Column
    private String avatar;
-
-   @Column //(nullable = false)
-   private String role;
+   
+   //@Column //(nullable = false)
+   //private String role;
 
    @Column //(nullable = false)
    private Integer reputacao;

@@ -26,7 +26,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Ocorrencia extends EntidadeAuditavel {
-
+   
    @ManyToOne
    private CategoriaOcorrencia categoria;
 

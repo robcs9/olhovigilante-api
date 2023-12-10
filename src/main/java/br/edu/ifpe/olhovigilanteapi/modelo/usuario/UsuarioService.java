@@ -8,8 +8,13 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ifpe.olhovigilanteapi.modelo.acesso.MembroService;
+
 @Service
 public class UsuarioService {
+    
+    @Autowired
+    private MembroService membroService;
 
     @Autowired
     private UsuarioRepository repository;
@@ -17,13 +22,15 @@ public class UsuarioService {
     @Transactional
     public Usuario save(Usuario usuario) {
 
+        membroService.save(usuario.getMembro());
+
         usuario.setHabilitado(Boolean.TRUE);
         usuario.setVersao(1L);
         usuario.setDataCriacao(LocalDate.now());
         usuario.setContadorSeguidores(0);
         usuario.setContadorSeguindo(0);
         usuario.setReputacao(0);
-        usuario.setRole("USUARIO");
+        //usuario.setRole("USUARIO");
         usuario.setVerificado(Boolean.FALSE);
 
         return repository.save(usuario);
@@ -44,11 +51,11 @@ public class UsuarioService {
         usuario.setNome(usuarioAlterado.getNome());
         usuario.setCpf(usuarioAlterado.getCpf());
         usuario.setEmail(usuarioAlterado.getEmail());
-        usuario.setSenha(usuarioAlterado.getSenha());
+        //usuario.setSenha(usuarioAlterado.getSenha());
         usuario.setBairro(usuarioAlterado.getBairro());
         usuario.setCidade(usuarioAlterado.getCidade());
         usuario.setAvatar(usuarioAlterado.getAvatar());
-        usuario.setRole(usuarioAlterado.getRole());
+        //usuario.setRole(usuarioAlterado.getRole());
         usuario.setReputacao(usuarioAlterado.getReputacao());
         usuario.setVerificado(usuarioAlterado.getVerificado());
         usuario.setContadorSeguidores(usuarioAlterado.getContadorSeguidores());
