@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OcorrenciaService {
+public class OcorrenciaService /* extends GenericService  */{
 
     @Autowired
     private OcorrenciaRepository repository;
@@ -20,6 +20,7 @@ public class OcorrenciaService {
     @Transactional
     public Ocorrencia save(Ocorrencia ocorrencia) {
 
+        
         ocorrencia.setHabilitado(Boolean.TRUE);
         ocorrencia.setVersao(1L);
         ocorrencia.setDataCriacao(LocalDate.now());

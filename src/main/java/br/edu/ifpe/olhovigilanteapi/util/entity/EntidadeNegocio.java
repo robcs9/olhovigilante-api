@@ -20,6 +20,16 @@ import lombok.Setter;
 @MappedSuperclass
 public abstract class EntidadeNegocio implements Serializable {
 
+    public static final String ROLE_USUARIO = "USUARIO"; // READ, WRITE, UPDATE, DELETE
+    public static final String ROLE_ADMINISTRADOR = "ADMINISTRADOR"; // READ, WRITE, UPDATE, DELETE
+
+    /* @Column(nullable = false, unique = true)
+    private String username;
+
+    @JsonIgnore
+    @Column(nullable = false)
+    private String password; */
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;

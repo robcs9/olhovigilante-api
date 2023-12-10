@@ -34,8 +34,8 @@ public class SecurityConfig {
             "/routes/**",
             "/favicon.ico",
             "/ws/**",
-            //"/delifacil/**/dadosPedidoNew/**",
-            //"/delifacil/image/**"
+            // "/delifacil/**/dadosPedidoNew/**",
+            // "/delifacil/image/**"
     };
 
     @Autowired
@@ -64,10 +64,36 @@ public class SecurityConfig {
                 .authenticationEntryPoint(authenticationEntryPoint).and().authorizeRequests()
 
                 .antMatchers(AUTH_WHITELIST).permitAll()
-                
-                .antMatchers(HttpMethod.POST, "/api/usuario").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/login").permitAll()
-                
+
+                .antMatchers(HttpMethod.POST, "/api/login").permitAll() // Todos podem fazer login
+
+                .antMatchers(HttpMethod.POST, "/api/usuario").permitAll() // Todos podem se cadastrar como usuario
+                .antMatchers(HttpMethod.GET, "/api/usuario/")
+                .hasAnyAuthority(Membro.ROLE_USUARIO, Membro.ROLE_ADMINISTRADOR) // /usuario/ é diferente de apenas
+                                                                                 // /usuario
+                .antMatchers(HttpMethod.PUT, "/api/usuario/*").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/usuario/*").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/api/ocorrencia").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/ocorrencia").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/ocorrencia").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/ocorrencia").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/api/categoriaocorrencia").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/categoriaocorrencia").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/categoriaocorrencia").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/categoriaocorrencia").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/api/midia").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/midia").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/midia").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/midia").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/api/comentario").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/comentario").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/comentario").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/comentario").permitAll()
+
                 .anyRequest()
                 .hasAnyAuthority(Membro.ROLE_USUARIO, Membro.ROLE_ADMINISTRADOR)
                 .and().addFilterBefore(
