@@ -34,6 +34,7 @@ public class SecurityConfig {
             "/routes/**",
             "/favicon.ico",
             "/ws/**",
+            "/**" // Liberar todas as rotas (somente para TESTES)
             // "/delifacil/**/dadosPedidoNew/**",
             // "/delifacil/image/**"
     };
@@ -64,13 +65,12 @@ public class SecurityConfig {
                 .authenticationEntryPoint(authenticationEntryPoint).and().authorizeRequests()
 
                 .antMatchers(AUTH_WHITELIST).permitAll()
-
+                
                 .antMatchers(HttpMethod.POST, "/api/login").permitAll() // Todos podem fazer login
 
                 .antMatchers(HttpMethod.POST, "/api/usuario").permitAll() // Todos podem se cadastrar como usuario
                 .antMatchers(HttpMethod.GET, "/api/usuario/")
-                .hasAnyAuthority(Membro.ROLE_USUARIO, Membro.ROLE_ADMINISTRADOR) // /usuario/ é diferente de apenas
-                                                                                 // /usuario
+                .hasAnyAuthority(Membro.ROLE_USUARIO, Membro.ROLE_ADMINISTRADOR) // /usuario/ é diferente de apenas /usuario
                 .antMatchers(HttpMethod.PUT, "/api/usuario/*").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/api/usuario/*").permitAll()
 
