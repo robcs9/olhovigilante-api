@@ -49,9 +49,19 @@ public class Ocorrencia extends EntidadeAuditavel {
    private String geolocalizacao;
    
    @Column(nullable = false)
-   private LocalDate dataHoraOcorrencia; // separar em private LocalDate data; private LocalTime hora; ?
+   private LocalDate dataHoraOcorrencia;
    
-   // Atributos abaixo serão removidos ou não futuramente (pendente)
+   // No need for a media attribute because of reletationship (join with "midia")
+   // and retrieve all the media urls from the db whenever a select request is made on the 'ocorrência' entity.
+   
+   /* 
+   @Column(nullable = false)
+   private LocalDate data;
+   @Column
+   private LocalTime hora;
+    */
+   
+    // Atributos abaixo passíveis de remoção
    @Column
    private Boolean presencaPolicial;
    
