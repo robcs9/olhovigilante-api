@@ -63,8 +63,8 @@ public class OcorrenciaController {
     public ResponseEntity<Ocorrencia> update(@PathVariable("id") Long id, @RequestBody OcorrenciaRequest request) {
         
         Ocorrencia ocorrencia = request.build();
-        ocorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
-        ocorrencia.setCategoria(categoriaOcorrenciaService.findById(request.getCategoriaId()));
+        //ocorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
+        //ocorrencia.setCategoria(categoriaOcorrenciaService.findById(request.getCategoriaId())); // conrrigir o problema de id nulo caso inclua isto no request
         ocorrenciaService.update(id, ocorrencia);
         return ResponseEntity.ok().build();
     }
