@@ -79,6 +79,6 @@ public class Usuario extends EntidadeAuditavel {
    private Integer contadorSeguindo;
 
    //@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-   //private List<Ocorrencia> ocorrencias;
+   //private List<Ocorrencia> ocorrencias; 
 
 }

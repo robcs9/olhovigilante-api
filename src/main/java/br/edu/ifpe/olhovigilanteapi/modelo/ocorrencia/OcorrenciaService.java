@@ -1,12 +1,16 @@
 package br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+
+import br.edu.ifpe.olhovigilanteapi.modelo.midia.Midia;
 
 @Service
 public class OcorrenciaService /* extends GenericService  */{
@@ -66,4 +70,16 @@ public class OcorrenciaService /* extends GenericService  */{
         repository.save(ocorrencia);
     }
 
+    /* public List<Midia> findMidias() {
+        List<Midia> midias = midiaRepository.findAll();
+        for(Midia midia : midias) {
+            if(midia.getOcorrenciaId())
+        }
+    } */
+
+    /* @Query(value = "SELECT * FROM midia WHERE midia.ocorrenciaId = 42")
+    public List<Midia> finMidias() {
+        List<Midia> midias = new ArrayList<>();
+        return midias; 
+    } */
 }
