@@ -70,6 +70,28 @@ public class OcorrenciaService /* extends GenericService  */{
         repository.save(ocorrencia);
     }
 
+    @Transactional
+    public void upvote(Long id) {
+        
+        Ocorrencia ocorrencia = repository.findById(id).get();
+        ocorrencia.setAvaliacao(ocorrencia.getAvaliacao() + 1);
+
+        ocorrencia.setDataUltimaModificacao(LocalDate.now());
+        ocorrencia.setVersao(ocorrencia.getVersao() + 1);
+        repository.save(ocorrencia);
+    }
+    
+    @Transactional
+    public void downvote(Long id) {
+        
+        Ocorrencia ocorrencia = repository.findById(id).get();
+        ocorrencia.setAvaliacao(ocorrencia.getAvaliacao() - 1);
+
+        ocorrencia.setDataUltimaModificacao(LocalDate.now());
+        ocorrencia.setVersao(ocorrencia.getVersao() + 1);
+        repository.save(ocorrencia);
+    }
+
     /* public List<Midia> findMidias() {
         List<Midia> midias = midiaRepository.findAll();
         for(Midia midia : midias) {

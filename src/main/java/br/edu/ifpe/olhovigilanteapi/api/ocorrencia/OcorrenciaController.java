@@ -75,4 +75,20 @@ public class OcorrenciaController {
         ocorrenciaService.delete(id);
         return ResponseEntity.ok().build();
     }
+
+    //http://localhost:8082/api/ocorrencia/{id}?upvote
+    @PutMapping("/{id}/upvote")
+    public ResponseEntity<Ocorrencia> upvote(@PathVariable("id") Long id) {
+        
+        ocorrenciaService.upvote(id);
+        return ResponseEntity.ok().build();
+    }
+
+    //http://localhost:8082/api/ocorrencia/{id}?downvote
+    @PutMapping("/{id}/downvote")
+    public ResponseEntity<Ocorrencia> downvote(@PathVariable("id") Long id) {
+        
+        ocorrenciaService.downvote(id);
+        return ResponseEntity.ok().build();
+    }
 }

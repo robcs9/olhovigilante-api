@@ -1,6 +1,7 @@
 package br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,6 +18,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.Where;
 import org.springframework.data.jpa.repository.Query;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.edu.ifpe.olhovigilanteapi.modelo.midia.Midia;
 import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Usuario;
@@ -66,7 +69,12 @@ public class Ocorrencia extends EntidadeAuditavel {
    private String geolocalizacao;
 
    @Column(nullable = false)
+   @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt_BR")
    private LocalDate dataHoraOcorrencia;
+
+   @Column
+   @JsonFormat(pattern = "HH:mm")
+   private LocalTime hora;
 
    // No need for a media attribute because of reletationship (join with "midia")
    // and retrieve all the media urls from the db whenever a select request is made
