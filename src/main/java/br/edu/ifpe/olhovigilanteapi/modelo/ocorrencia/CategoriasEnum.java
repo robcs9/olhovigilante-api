@@ -6,6 +6,8 @@ import java.util.List;
 public enum CategoriasEnum {
 
   AMEACA("AMEAÇA"),
+  ASSALTO("ASSALTO"),
+  HOMICIDIO("HOMICÍDIO"),
   ATOOBSCENO("ATO / ESCRITO / OBJETO OBSCENO"),
   APROPRIAçÃO("APROPRIAçÃO INDÉBITA"),
   DANO("DANO / DEPREDAÇÃO"),
