@@ -30,3 +30,5 @@ FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/olhovigilante-api-0.0.1-SNAPSHOT.jar olhovigilante-api.jar
 EXPOSE 8082
 ENTRYPOINT ["java", "-jar","olhovigilante-api.jar"]
+
+#additional entrypoint option might be required to fix port future issues: “–server.port=8083”
