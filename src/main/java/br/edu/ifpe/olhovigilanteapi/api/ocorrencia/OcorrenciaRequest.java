@@ -1,6 +1,7 @@
 package br.edu.ifpe.olhovigilanteapi.api.ocorrencia;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import br.edu.ifpe.olhovigilanteapi.modelo.ocorrencia.Ocorrencia;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,8 @@ public class OcorrenciaRequest {
     private String geolocalizacao;
     
     private LocalDate dataHoraOcorrencia;
+
+    private LocalTime hora;
     
     // private Boolean presencaPolicial;
     
@@ -50,6 +53,7 @@ public class OcorrenciaRequest {
             .bairro(bairro)
             .geolocalizacao(geolocalizacao)
             .dataHoraOcorrencia(dataHoraOcorrencia)
+            .hora(hora)
             // .presencaPolicial(presencaPolicial)
             // .acaoPolicial(acaoPolicial)
             // .motivacao(motivacao)

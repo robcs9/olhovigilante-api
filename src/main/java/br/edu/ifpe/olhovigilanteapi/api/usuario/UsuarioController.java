@@ -3,6 +3,7 @@ package br.edu.ifpe.olhovigilanteapi.api.usuario;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifpe.olhovigilanteapi.modelo.usuario.Usuario;
@@ -44,6 +46,12 @@ public class UsuarioController {
     public Usuario findById(@PathVariable("id") Long id) {
         Usuario usuario = usuarioService.findById(id);
         return usuario;
+    }
+
+    @GetMapping("/u/{email}")
+    public Long findByEmail(@PathVariable("email") String email) {
+        Usuario usuario = usuarioService.findByEmail(email);
+        return usuario.getId();
     }
 
     @PutMapping("/{id}")

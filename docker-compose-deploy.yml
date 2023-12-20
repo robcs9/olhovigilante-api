@@ -1,0 +1,40 @@
+version: "3"
+services:
+  olhovigilante-api:
+    build: olhovigilante-api
+    ports:
+      - 8082:8082
+    environment:
+      - POSTGRES_DB=olhovigilante
+      - POSTGRES_PASSWORD=olhovigilante
+      - PORT_DB=5435
+      - HOST_DB=localhost
+    #env_file:
+    #  - olhovigilante-api/.env
+    networks:
+      - olhovigilante-api
+    depends_on:
+      - db
+  db:
+    image: postgres:9.6
+    restart: always
+    volumes:
+      - ./postgres-data:/bitnami/postgresql/data
+    networks:
+      - olhovigilante-api
+    environment:
+      POSTGRES_PASSWORD: olhovigilante
+      POSTGRES_DB: olhovigilante
+    #ports:
+    # - ${PORTS_DB}
+    expose:
+      - 5435
+    #env_file:
+    #  - olhovigilante-api/.env
+volumes:
+  db-data:
+#secrets:
+#  db-password:
+#    file: db/password.txt
+networks:
+  olhovigilante-api:

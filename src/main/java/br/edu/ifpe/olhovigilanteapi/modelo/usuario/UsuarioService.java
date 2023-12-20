@@ -44,6 +44,16 @@ public class UsuarioService {
         return repository.findById(id).get();
     }
 
+    public Usuario findByEmail(String email) {
+        List<Usuario> usuarios = repository.findAll();
+        for(Usuario usuario : usuarios) {
+            if(usuario.getEmail().equals(email)) {
+                return usuario;
+            }
+        };
+        return null;
+    }
+
     @Transactional
     public void update(Long id, Usuario usuarioAlterado) {
 

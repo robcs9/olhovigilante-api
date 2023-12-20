@@ -63,8 +63,8 @@ public class OcorrenciaController {
     public ResponseEntity<Ocorrencia> update(@PathVariable("id") Long id, @RequestBody OcorrenciaRequest request) {
         
         Ocorrencia ocorrencia = request.build();
-        ocorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
-        ocorrencia.setCategoria(categoriaOcorrenciaService.findById(request.getCategoriaId()));
+        //ocorrencia.setUsuario(usuarioService.findById(request.getUsuarioId()));
+        //ocorrencia.setCategoria(categoriaOcorrenciaService.findById(request.getCategoriaId())); // conrrigir o problema de id nulo caso inclua isto no request
         ocorrenciaService.update(id, ocorrencia);
         return ResponseEntity.ok().build();
     }
@@ -73,6 +73,22 @@ public class OcorrenciaController {
     public ResponseEntity<Ocorrencia> delete(@PathVariable("id") Long id) {
 
         ocorrenciaService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
+    //http://localhost:8082/api/ocorrencia/{id}?upvote
+    @PutMapping("/{id}/upvote")
+    public ResponseEntity<Ocorrencia> upvote(@PathVariable("id") Long id) {
+        
+        ocorrenciaService.upvote(id);
+        return ResponseEntity.ok().build();
+    }
+
+    //http://localhost:8082/api/ocorrencia/{id}?downvote
+    @PutMapping("/{id}/downvote")
+    public ResponseEntity<Ocorrencia> downvote(@PathVariable("id") Long id) {
+        
+        ocorrenciaService.downvote(id);
         return ResponseEntity.ok().build();
     }
 }
