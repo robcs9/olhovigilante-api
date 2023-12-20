@@ -1,17 +1,32 @@
-FROM eclipse-temurin:17-jdk-focal
+#FROM eclipse-temurin:17-jdk-focal
 
-WORKDIR /app
+#WORKDIR /app
 
+# it doesn't work v
 #COPY .mvn/ ./mvn
 #COPY mvnw pom.xml ./
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
+# it doesn't work ^
 
-RUN chmod +x mvnw
+# COPY mvnw .
+# COPY .mvn .mvn
+# COPY pom.xml .
 
-RUN ./mvnw dependency:go-offline
+# RUN chmod +x mvnw
 
-COPY src ./src
+# RUN ./mvnw dependency:go-offline
 
-CMD ["./mvnw", "spring-boot:run"]
+# COPY src ./src
+
+# CMD ["./mvnw", "spring-boot:run"]
+
+
+# New Dockerfile
+
+FROM maven:3.8.5-openjdk-17 AS build
+COPY . .
+RUN mvn clean package -DskipTests
+
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /target/olhovigilante-api-0.0.1-SNAPSHOT.jar olhovigilante-api.jar
+EXPOSE 8082
+ENTRYPOINT ["java", "-jar","demo.jar"]
