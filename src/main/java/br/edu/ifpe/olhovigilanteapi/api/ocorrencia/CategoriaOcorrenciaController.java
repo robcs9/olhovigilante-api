@@ -41,9 +41,9 @@ public class CategoriaOcorrenciaController {
     @GetMapping
     public List<CategoriaOcorrencia> findAll(CategoriaOcorrenciaRequest request) {
         List<CategoriaOcorrencia> ocorrencias = categoriaOcorrenciaService.findAll();
-        /* if (ocorrencias.isEmpty()) {
+        if (ocorrencias.isEmpty()) {
             this.populate();
-        } */
+        }
         return ocorrencias;
     }
 
