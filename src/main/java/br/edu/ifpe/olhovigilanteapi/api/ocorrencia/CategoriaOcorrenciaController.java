@@ -73,7 +73,7 @@ public class CategoriaOcorrenciaController {
         for (CategoriasEnum categoriaEnum : CategoriasEnum.values()) {
             
             CategoriaOcorrencia categoria = new CategoriaOcorrencia();
-            categoria.setNome(categoriaEnum.getName());
+            categoria.setNome(categoriaEnum.toString());
             categorias.add(categoria);
         }
         
