@@ -41,6 +41,9 @@ public class CategoriaOcorrenciaController {
     @GetMapping
     public List<CategoriaOcorrencia> findAll(CategoriaOcorrenciaRequest request) {
         List<CategoriaOcorrencia> ocorrencias = categoriaOcorrenciaService.findAll();
+        /* if (ocorrencias.isEmpty()) {
+            this.populate();
+        } */
         return ocorrencias;
     }
 
@@ -67,7 +70,7 @@ public class CategoriaOcorrenciaController {
     }
 
     @PostMapping("/populate")
-    public ResponseEntity<CategoriaOcorrencia> populate(CategoriaOcorrenciaRequest request) {
+    public ResponseEntity<CategoriaOcorrencia> populate(/* CategoriaOcorrenciaRequest request */) {
         List<CategoriaOcorrencia> categorias = new ArrayList<CategoriaOcorrencia>();
 
         for (CategoriasEnum categoriaEnum : CategoriasEnum.values()) {
